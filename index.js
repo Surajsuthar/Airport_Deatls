@@ -27,6 +27,10 @@ client
 
 //hey
 
+app.get('/',(req,res) => {
+  res.send(' api running ');
+})
+
 app.get('/api/:iata_code', async (req, res) => {
     const iataCode = req.params.iata_code;
     try {
