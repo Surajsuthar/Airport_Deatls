@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const { Client } = require('pg');
 
+require('dotenv').config()
+
 const client = new Client({
 	user: 'suraj',
 	password: 'Suraj@0067',
@@ -94,10 +96,9 @@ app.get('/api/:iata_code', async (req, res) => {
   
       res.json(response);
     } catch (error) {
-      console.error('Error executing query', error);
       res.status(500).json({ error: 'Internal server error' });
     }
   });
 
-const PORT = 3030
+const PORT = process.env.PORT || 5050
 app.listen(PORT,()=>console.log(`server is listning ${PORT}`))
